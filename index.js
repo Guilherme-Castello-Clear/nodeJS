@@ -1,7 +1,11 @@
 const express = require('express'); //Include express lib
 const consign = require('consign'); //Include consign lib
+const bodyParser = require('body-parser');
 
 let app = express();
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json())
+
 
 consign().include('routes').into(app);// Include routes folder in let app and send app send to module.exports
 

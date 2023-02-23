@@ -11,12 +11,8 @@ module.exports = (app)=>{
         });
     });
     
-    app.get('/users/admin', (req, res)=>{ //define route /users/admin
+    app.post('/users', (req, res)=>{ //define route /users/admin
     
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json({
-            users:[]
-        });
+        res.json(req.body);
     });
 }
