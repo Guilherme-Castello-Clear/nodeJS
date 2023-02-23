@@ -1,28 +1,11 @@
-const express = require('express');
+const express = require('express'); //Include express lib
+const consign = require('consign'); //Include consign lib
 
 let app = express();
 
-app.get('/', (req, res)=>{
+consign().include('routes').into(app);// Include routes folder in let app and send app send to module.exports
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.end("<h1>Olá</h1");
-});
-app.get('/users', (req, res)=>{
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json({
-        users:[{
-            name: "Castello",
-            email: 'guilherme.guilherme@guilherme'
-        }]
-    });
-});
-    
-
-
-app.listen(3000, "127.0.0.1", ()=>{
+app.listen(3000, "127.0.0.1", ()=>{//Start server
 
     console.log("Server running!");
 
